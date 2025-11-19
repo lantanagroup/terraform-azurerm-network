@@ -39,7 +39,7 @@ resource "azurerm_subnet" "subnet_count" {
   name                                          = var.subnet_names[count.index]
   resource_group_name                           = var.resource_group_name
   virtual_network_name                          = azurerm_virtual_network.vnet.name
-  private_link_service_network_policies_enabled = lookup(var.private_link_service_network_policies_enabled, var.subnet_names[count.index], false)
+  private_link_service_network_policies_enabled = lookup(var.private_link_service_network_policies_enabled, var.subnet_names[count.index], true)
   service_endpoints                             = lookup(var.subnet_service_endpoints, var.subnet_names[count.index], [])
 
   dynamic "delegation" {
