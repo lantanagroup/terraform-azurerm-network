@@ -33,7 +33,7 @@
 - Add new variable `address_spaces` [\#61](https://github.com/Azure/terraform-azurerm-network/pull/61) ([yupwei68](https://github.com/yupwei68))
 - ADD variable to configure service endpoints [\#60](https://github.com/Azure/terraform-azurerm-network/pull/60) ([goatwu1993](https://github.com/goatwu1993))
 - adds missing words and fixes consistency [\#55](https://github.com/Azure/terraform-azurerm-network/pull/55) ([ksatirli](https://github.com/ksatirli))
-- Add variable `subnet_enforce_private_link_endpoint_network_policies` [\#51](https://github.com/Azure/terraform-azurerm-network/pull/51) ([yupwei68](https://github.com/yupwei68))
+- Add variable `private_link_service_network_policies_enabled` [\#51](https://github.com/Azure/terraform-azurerm-network/pull/51) ([yupwei68](https://github.com/yupwei68))
 - Docker fix [\#49](https://github.com/Azure/terraform-azurerm-network/pull/49) ([yupwei68](https://github.com/yupwei68))
 - Integration of Terramodtest 0.8.0 [\#48](https://github.com/Azure/terraform-azurerm-network/pull/48) ([yupwei68](https://github.com/yupwei68))
 - Create pull\_request\_template.md [\#47](https://github.com/Azure/terraform-azurerm-network/pull/47) ([yupwei68](https://github.com/yupwei68))
