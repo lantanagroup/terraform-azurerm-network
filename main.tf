@@ -39,7 +39,7 @@ resource "azurerm_subnet" "subnet_count" {
   name                                          = var.subnet_names[count.index]
   resource_group_name                           = var.resource_group_name
   virtual_network_name                          = azurerm_virtual_network.vnet.name
-  private_endpoint_network_policies             = lookup(var.private_endpoint_network_policies, var.subnet_names[count.index], "Enabled")
+  private_endpoint_network_policies             = lookup(var.private_endpoint_network_policies, var.subnet_names[count.index], "Disabled")
   private_link_service_network_policies_enabled = lookup(var.private_link_service_network_policies_enabled, var.subnet_names[count.index], false)
   service_endpoints                             = lookup(var.subnet_service_endpoints, var.subnet_names[count.index], [])
 
@@ -64,7 +64,8 @@ resource "azurerm_subnet" "subnet_for_each" {
   name                                          = each.value
   resource_group_name                           = var.resource_group_name
   virtual_network_name                          = azurerm_virtual_network.vnet.name
-  private_link_service_network_policies_enabled = lookup(var.private_link_service_network_policies_enabled, each.value, false)
+  private_endpoint_network_policies             = lookup(var.private_endpoint_network_policies, var.subnet_names[count.index], "Disabled")
+  private_link_service_network_policies_enabled = lookup(var.private_link_service_network_policies_enabled, var.subnet_names[count.index], false)
   service_endpoints                             = lookup(var.subnet_service_endpoints, each.value, [])
 
   dynamic "delegation" {
