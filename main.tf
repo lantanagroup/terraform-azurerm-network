@@ -64,16 +64,14 @@ resource "azurerm_subnet" "subnet_for_each" {
   name                                          = each.value
   resource_group_name                           = var.resource_group_name
   virtual_network_name                          = azurerm_virtual_network.vnet.name
-  private_endpoint_network_policies             = lookup(var.private_endpoint_network_policies, var.subnet_names[count.index], "Disabled")
-  private_link_service_network_policies_enabled = lookup(var.private_link_service_network_policies_enabled, var.subnet_names[count.index], false)
+  private_endpoint_network_policies             = lookup(var.private_endpoint_network_policies, each.value, "Disabled")
+  private_link_service_network_policies_enabled = lookup(var.private_link_service_network_policies_enabled, each.value, false)
   service_endpoints                             = lookup(var.subnet_service_endpoints, each.value, [])
 
   dynamic "delegation" {
     for_each = lookup(var.subnet_delegation, each.value, [])
-
     content {
       name = delegation.value.name
-
       service_delegation {
         name    = delegation.value.service_delegation.name
         actions = delegation.value.service_delegation.actions
